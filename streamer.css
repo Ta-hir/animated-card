@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: black;
+    color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+.streamer .icon img {
+    border-radius: 50%;
+
+}
+
+
+.icon {
+    position: relative;
+    transition: transform ease-in-out 250ms;
+
+}
+
+.streamer:hover .icon::before {
+    opacity: 1;
+}
+
+.icon::after,
+.icon::before {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+}
+
+.icon::before {
+    content: '\f04b';
+    font: var(--fa-font-solid);
+    background: #f00;
+    display: grid;
+    place-items: center;
+    font-size: 2em;
+    z-index: 10;
+    transition: opacity 100ms linear;
+}
+
+.icon:hover::before {
+    background: #e00000;
+}
+
+.streamer:hover .icon {
+    transform: translateY(-20%);
+}
+
+.streamer .icon:hover {
+    transform: translateY(-20%) scale(1.1);
+}
+
+.icon:hover::after {
+    background: #f00;
+    z-index: 1;
+    animation: pulse 1000ms infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: .95;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
